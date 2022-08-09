@@ -20,16 +20,13 @@ export default function App() {
   });
 
   function handleChange(event) {
-    const { name, value } = event.target;
+    const { name, value, id } = event.target;
     setInformation((prevInformation) => ({
       ...prevInformation,
-      contact: {
-        ...prevInformation.contact,
+      [id]: {
+        ...prevInformation[id],
         [name]: value,
       },
-      // contact: {
-      //   [name]: value,
-      // },
     }));
   }
 
