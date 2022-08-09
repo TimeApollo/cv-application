@@ -6,7 +6,7 @@ export default function Output(props) {
   return (
     <div>
       <ContactOutput {...props.contact} handleChange={props.handleChange} />
-      <EducationOutput {...props.education} handleChange={props.handleChange} />
+      <EducationOutput {...props} handleChange={props.handleChange} />
     </div>
   );
 }

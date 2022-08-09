@@ -12,29 +12,59 @@ export default function App() {
       email: 'josephvellella@proton.me',
       phone: '720-447-5186',
     },
-    education: {
-      name: 'Missouri University of Science and Technology',
-      areaOfStudy: 'B.S. Chemical Engineering',
-      dateOfStudy: 'August 2011 - May 2015',
-      city: 'Rolla, MO',
-    },
+    education: [
+      {
+        name: 'Missouri University of Science and Technology',
+        areaOfStudy: 'B.S. Chemical Engineering',
+        dateOfStudy: 'August 2011 - May 2015',
+        city: 'Rolla, MO',
+      },
+    ],
   });
 
-  function handleChange(event) {
-    const { name, value, id } = event.target;
-    setInformation((prevInformation) => ({
-      ...prevInformation,
-      [id]: {
-        ...prevInformation[id],
-        [name]: value,
+  function addEducation() {
+    let newEducation = [
+      {
+        name: '',
+        areaOfStudy: '',
+        dateOfStudy: ',',
+        city: '',
       },
-    }));
+    ];
+    setInformation((prevInformation) => {
+      let newInformation = prevInformation;
+      newInformation.education.push(newEducation);
+    });
+  }
+  function handleChange(event) {
+    const { name, value, id, step } = event.target;
+
+    if (step === '') {
+      setInformation((prevInformation) => {
+        let newState = prevInformation;
+        newState[id][name] = value;
+        return { ...newState };
+      });
+    } else {
+      setInformation((prevInformation) => {
+        let newState = prevInformation;
+        console.log('debug!', newState[id]);
+        newState[id][step][name] = value;
+        return {
+          ...newState,
+        };
+      });
+    }
   }
 
   return (
     <div className="mx-auto flex flex-col gap-8 bg-slate-800 text-white md:max-w-4xl">
       <Contact {...information} handleChange={handleChange} />
-      <Education {...information} handleChange={handleChange} />
+      <Education
+        {...information}
+        handleChange={handleChange}
+        addEducation={addEducation}
+      />
       <Experience />
       <Output {...information} />
     </div>

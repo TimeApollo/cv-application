@@ -7,29 +7,22 @@ export default function Education(props) {
     event.preventDefault();
     setShow((prevShow) => !prevShow);
   }
-  return (
-    <div className="mb-8 flex flex-col items-center">
-      <h1 className="text-3xl"> Education Details</h1>
-      {!show && (
-        <button
-          onClick={handleSubmit}
-          className="mt-2 rounded bg-white px-4 py-1 text-slate-800"
-        >
-          Edit Education Details
-        </button>
-      )}
-      {show && (
-        <form
-          onSubmit={handleSubmit}
-          className="mt-4 flex flex-col items-center gap-3"
-        >
+  console.log(props);
+  const propsArray = props.education;
+
+  const renderEdForms = propsArray.map((obj, index) => {
+    return (
+      <div key={index}>
+        <form className="mt-4 flex flex-col items-center gap-3">
           <div className="">
             <input
               onChange={props.handleChange}
-              value={props.education.name}
+              value={obj.name}
+              key={index}
               type="text"
               name="name"
               id="education"
+              step={index}
               className="rounded px-2 text-slate-800"
               placeholder="School"
             />
@@ -38,10 +31,12 @@ export default function Education(props) {
           <div className="">
             <input
               onChange={props.handleChange}
-              value={props.education.city}
+              value={obj.city}
+              key={index}
               type="text"
               name="city"
               id="education"
+              step={index}
               className="rounded px-2 text-slate-800"
               placeholder="City and State"
             />
@@ -50,10 +45,12 @@ export default function Education(props) {
           <div>
             <input
               onChange={props.handleChange}
-              value={props.education.areaOfStudy}
+              value={obj.areaOfStudy}
+              key={index}
               type="text"
               name="areaOfStudy"
               id="education"
+              step={index}
               placeholder="Area of Study"
               className="rounded px-2 text-slate-800"
             />
@@ -62,20 +59,31 @@ export default function Education(props) {
           <div>
             <input
               onChange={props.handleChange}
-              value={props.education.dateOfStudy}
+              value={obj.dateOfStudy}
               type="text"
               name="dateOfStudy"
               id="education"
+              step={index}
               className="rounded px-2 text-slate-800"
               placeholder="Dates Attended"
             />
           </div>
 
-          <button className="rounded bg-white px-4 py-1 text-slate-800">
-            Hide Education Details
-          </button>
+          <div className="flex gap-4">
+            <button
+              onClick={handleSubmit}
+              className="rounded bg-white px-4 py-1 text-slate-800"
+            >
+              Hide Education Details
+            </button>
+            <button className="rounded bg-white px-4 py-1 text-slate-800">
+              Add Education
+            </button>
+          </div>
         </form>
-      )}
-    </div>
-  );
+      </div>
+    );
+  });
+
+  return <div>{renderEdForms}</div>;
 }
