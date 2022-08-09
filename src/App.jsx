@@ -22,7 +22,8 @@ export default function App() {
     ],
   });
 
-  function addEducation() {
+  function addEducation(event) {
+    event.preventDefault();
     let newEducation = [
       {
         name: '',
@@ -34,8 +35,10 @@ export default function App() {
     setInformation((prevInformation) => {
       let newInformation = prevInformation;
       newInformation.education.push(newEducation);
+      return { ...newInformation };
     });
   }
+
   function handleChange(event) {
     const { name, value, id, step } = event.target;
 

@@ -76,7 +76,10 @@ export default function Education(props) {
             >
               Hide Education Details
             </button>
-            <button className="rounded bg-white px-4 py-1 text-slate-800">
+            <button
+              onClick={props.addEducation}
+              className="rounded bg-white px-4 py-1 text-slate-800"
+            >
               Add Education
             </button>
           </div>

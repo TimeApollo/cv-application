@@ -4,7 +4,7 @@ export default function EducationOutput(props) {
   const propsArray = props.education;
   const renderedEd = propsArray.map((obj, index) => {
     return (
-      <div key={index}>
+      <div className="mb-4" key={index}>
         <div className="flex justify-between">
           <h1>{obj.areaOfStudy}</h1>
           <h1>{obj.dateOfStudy}</h1>
