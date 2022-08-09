@@ -14,8 +14,9 @@ export default function App() {
     },
     education: {
       name: 'Missouri University of Science and Technology',
-      areaOfStudy: 'Chemical Engineering',
+      areaOfStudy: 'B.S. Chemical Engineering',
       dateOfStudy: 'August 2011 - May 2015',
+      city: 'Rolla, MO',
     },
   });
 
@@ -33,7 +34,7 @@ export default function App() {
   return (
     <div className="mx-auto flex flex-col gap-8 bg-slate-800 text-white md:max-w-4xl">
       <Contact {...information} handleChange={handleChange} />
-      <Education />
+      <Education {...information} handleChange={handleChange} />
       <Experience />
       <Output {...information} />
     </div>

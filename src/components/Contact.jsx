@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
 export default function Contact(props) {
-  console.log(props);
   const [show, setShow] = useState(true);
 
   function handleSubmit(event) {
@@ -10,13 +9,13 @@ export default function Contact(props) {
   }
   return (
     <div className="mt-8 flex flex-col items-center">
-      <h1 className="text-2xl"> Contact Information</h1>
+      <h1 className="text-3xl"> Contact Details</h1>
       {!show && (
         <button
           onClick={handleSubmit}
           className="mt-2 rounded bg-white px-4 py-1 text-slate-800"
         >
-          Edit Contact
+          Edit Contact Details
         </button>
       )}
       {show && (
@@ -30,7 +29,7 @@ export default function Contact(props) {
               value={props.contact.name}
               type="text"
               name="name"
-              id="name"
+              id="contact"
               className="rounded px-2 text-slate-800"
               placeholder="Full Name"
             />
@@ -42,7 +41,7 @@ export default function Contact(props) {
               value={props.contact.address}
               type="text"
               name="address"
-              id="address"
+              id="contact"
               placeholder="Full Address"
               className="rounded px-2 text-slate-800"
             />
@@ -54,7 +53,7 @@ export default function Contact(props) {
               value={props.contact.email}
               type="email"
               name="email"
-              id="email"
+              id="contact"
               className="rounded px-2 text-slate-800"
               placeholder="Email"
             />
@@ -66,13 +65,13 @@ export default function Contact(props) {
               value={props.contact.phone}
               type="tel"
               name="phone"
-              id="tel"
+              id="contact"
               className="rounded px-2 text-slate-800"
               placeholder="Phone"
             />
           </div>
           <button className="rounded bg-white px-4 py-1 text-slate-800">
-            Hide Section
+            Hide Contact Details
           </button>
         </form>
       )}
