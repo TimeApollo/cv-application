@@ -7,7 +7,6 @@ export default function Education(props) {
     event.preventDefault();
     setShow((prevShow) => !prevShow);
   }
-  console.log(props);
   const propsArray = props.education;
 
   const renderEdForms = propsArray.map((obj, index) => {
@@ -85,7 +84,7 @@ export default function Education(props) {
           Hide Education Details
         </button>
         <button
-          onClick={props.addEducation}
+          onClick={show && props.addEducation}
           className="rounded bg-white px-4 py-1 text-slate-800"
         >
           Add Education
