@@ -13,7 +13,7 @@ export default function Education(props) {
   const renderEdForms = propsArray.map((obj, index) => {
     return (
       <div key={index}>
-        <form className="mt-4 flex flex-col items-center gap-3">
+        <form className="mt-8 flex flex-col items-center gap-3">
           <div className="">
             <input
               onChange={props.handleChange}
@@ -68,25 +68,29 @@ export default function Education(props) {
               placeholder="Dates Attended"
             />
           </div>
-
-          <div className="flex gap-4">
-            <button
-              onClick={handleSubmit}
-              className="rounded bg-white px-4 py-1 text-slate-800"
-            >
-              Hide Education Details
-            </button>
-            <button
-              onClick={props.addEducation}
-              className="rounded bg-white px-4 py-1 text-slate-800"
-            >
-              Add Education
-            </button>
-          </div>
         </form>
       </div>
     );
   });
 
-  return <div>{renderEdForms}</div>;
+  return (
+    <div className="flex flex-col items-center">
+      <h1 className="text-3xl"> Education Details</h1>
+      {show && renderEdForms}
+      <div className="m-4 flex justify-center gap-8">
+        <button
+          onClick={handleSubmit}
+          className="rounded bg-white px-4 py-1 text-slate-800"
+        >
+          Hide Education Details
+        </button>
+        <button
+          onClick={props.addEducation}
+          className="rounded bg-white px-4 py-1 text-slate-800"
+        >
+          Add Education
+        </button>
+      </div>
+    </div>
+  );
 }
