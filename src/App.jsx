@@ -33,9 +33,8 @@ export default function App() {
       },
     ];
     setInformation((prevInformation) => {
-      let newInformation = prevInformation;
-      newInformation.education.push(newEducation);
-      return { ...newInformation };
+      const newEdArray = [...prevInformation.education, newEducation];
+      return { ...prevInformation, education: newEdArray };
     });
   }
 
@@ -44,14 +43,13 @@ export default function App() {
 
     if (step === '') {
       setInformation((prevInformation) => {
-        let newState = prevInformation;
+        let newState = { ...prevInformation };
         newState[id][name] = value;
         return { ...newState };
       });
     } else {
       setInformation((prevInformation) => {
-        let newState = prevInformation;
-        console.log('debug!', newState[id]);
+        let newState = { ...prevInformation };
         newState[id][step][name] = value;
         return {
           ...newState,

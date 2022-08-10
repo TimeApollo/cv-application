@@ -7,16 +7,15 @@ export default function Education(props) {
     event.preventDefault();
     setShow((prevShow) => !prevShow);
   }
-  const propsArray = props.education;
 
-  const renderEdForms = propsArray.map((obj, index) => {
+  const renderEdForms = props.education.map((obj, index) => {
     return (
       <div key={index}>
         <form className="mt-8 flex flex-col items-center gap-3">
           <div className="">
             <input
               onChange={props.handleChange}
-              value={obj.name}
+              value={obj.name ?? ''}
               key={index}
               type="text"
               name="name"
@@ -30,7 +29,7 @@ export default function Education(props) {
           <div className="">
             <input
               onChange={props.handleChange}
-              value={obj.city}
+              value={obj.city ?? ''}
               key={index}
               type="text"
               name="city"
@@ -44,7 +43,7 @@ export default function Education(props) {
           <div>
             <input
               onChange={props.handleChange}
-              value={obj.areaOfStudy}
+              value={obj.areaOfStudy ?? ''}
               key={index}
               type="text"
               name="areaOfStudy"
@@ -58,7 +57,7 @@ export default function Education(props) {
           <div>
             <input
               onChange={props.handleChange}
-              value={obj.dateOfStudy}
+              value={obj.dateOfStudy ?? ''}
               type="text"
               name="dateOfStudy"
               id="education"
