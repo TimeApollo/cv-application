@@ -74,21 +74,31 @@ export default function Education(props) {
   return (
     <div className="flex flex-col items-center">
       <h1 className="text-3xl"> Education Details</h1>
-      {show && renderEdForms}
-      <div className="m-4 flex justify-center gap-8">
+      {!show && (
         <button
           onClick={handleSubmit}
-          className="rounded bg-white px-4 py-1 text-slate-800"
+          className="mt-2 rounded bg-white px-4 py-1 text-slate-800"
         >
-          Hide Education Details
+          Edit Education Details
         </button>
-        <button
-          onClick={show && props.addEducation}
-          className="rounded bg-white px-4 py-1 text-slate-800"
-        >
-          Add Education
-        </button>
-      </div>
+      )}
+      {show && renderEdForms}
+      {show && (
+        <div className="m-4 flex justify-center gap-8">
+          <button
+            onClick={handleSubmit}
+            className="rounded bg-white px-4 py-1 text-slate-800"
+          >
+            Hide Education Details
+          </button>
+          <button
+            onClick={show && props.addEducation}
+            className="rounded bg-white px-4 py-1 text-slate-800"
+          >
+            Add Education
+          </button>
+        </div>
+      )}
     </div>
   );
 }
