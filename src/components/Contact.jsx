@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 export default function Contact(props) {
   const [show, setShow] = useState(false);
@@ -8,7 +8,7 @@ export default function Contact(props) {
     setShow((prevShow) => !prevShow);
   }
   return (
-    <div className="mt-8 flex flex-col items-center">
+    <div className=" flex flex-col items-center">
       <h1 className="text-3xl"> Contact Details</h1>
       {!show && (
         <button

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 export default function Experience(props) {
   const [show, setShow] = useState(false);
@@ -9,7 +9,6 @@ export default function Experience(props) {
   }
 
   const renderedExpForms = props.experience.map((obj, index) => {
-    console.log(props.experience);
     const renderedTaskInputs = obj.tasks.map((task, indexTwo) => {
       return (
         <div key={indexTwo}>
@@ -85,18 +84,7 @@ export default function Experience(props) {
             />
           </div>
           {renderedTaskInputs}
-          {/* <div>
-            <input
-              onChange={props.handleChange}
-              value={obj.tasks ?? ''}
-              type="text"
-              name="tasks"
-              id="experience"
-              step={index}
-              className="rounded px-2 text-slate-800"
-              placeholder="Enter Professional Experience"
-            />
-          </div> */}
+
           <button
             onClick={props.addTask}
             id={index}

@@ -7,29 +7,26 @@ import Output from './components/Output';
 export default function App() {
   const [information, setInformation] = useState({
     contact: {
-      name: 'Joseph Vellella',
-      address: '670 Winona Ct Apt 23 Denver Colorado 80204',
-      email: 'josephvellella@proton.me',
-      phone: '720-447-5186',
+      name: '',
+      address: '',
+      email: '',
+      phone: '',
     },
     education: [
       {
-        name: 'Missouri University of Science and Technology',
-        areaOfStudy: 'B.S. Chemical Engineering',
-        dateOfStudy: 'August 2011 - May 2015',
-        city: 'Rolla, MO',
+        name: '',
+        areaOfStudy: '',
+        dateOfStudy: '',
+        city: '',
       },
     ],
     experience: [
       {
-        name: 'Gelita',
-        position: 'Process Engineer',
-        dateOfWork: 'August 2011 - May 2015',
-        city: 'Sioux City, IA',
-        tasks: [
-          'Facilate training of over 200 process operators.',
-          'A second super important task that shows skill.',
-        ],
+        name: '',
+        position: '',
+        dateOfWork: '',
+        city: '',
+        tasks: ['', 'A second super important task that shows skill.'],
       },
     ],
   });
@@ -47,7 +44,6 @@ export default function App() {
     setInformation((prevInformation) => {
       const newEdArray = [...prevInformation.education, newEducation];
       let newInformation = { ...prevInformation };
-      console.log(newInformation);
       return { ...prevInformation, education: newEdArray };
     });
   }
@@ -104,6 +100,9 @@ export default function App() {
 
   return (
     <div className="mx-auto flex flex-col gap-8 bg-slate-800 text-white md:max-w-4xl">
+      <h1 className=" mt-2 flex justify-center text-4xl font-bold">
+        CV Generator
+      </h1>
       <Contact {...information} handleChange={handleChange} />
       <Education
         {...information}
