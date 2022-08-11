@@ -46,34 +46,35 @@ export default function App() {
     ];
     setInformation((prevInformation) => {
       const newEdArray = [...prevInformation.education, newEducation];
+      let newInformation = { ...prevInformation };
+      console.log(newInformation);
       return { ...prevInformation, education: newEdArray };
     });
   }
 
   function addExperience(event) {
     event.preventDefault();
-    let newExperience = [
-      {
-        name: '',
-        position: '',
-        dateOfWork: '',
-        tasks: [],
-      },
-    ];
+    let newExperience = {
+      name: '',
+      position: '',
+      dateOfWork: '',
+      tasks: [''],
+    };
     setInformation((prevInformation) => {
-      const newExpArray = [...prevInformation.experience, newExperience];
-      return { ...prevInformation, experience: newExpArray };
+      const newInformation = structuredClone(prevInformation);
+      newInformation.experience.push(newExperience);
+      return { ...newInformation };
     });
   }
 
   function addTask(event) {
     const { id } = event.target;
     setInformation((prevInformation) => {
-      const newInformation = { ...prevInformation };
+      const newInformation = structuredClone(prevInformation);
       const newArray = [...newInformation.experience[id].tasks];
       newArray.push('');
       newInformation.experience[id].tasks = newArray;
-      return newInformation;
+      return { ...newInformation };
     });
   }
 

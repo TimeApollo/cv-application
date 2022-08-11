@@ -9,6 +9,7 @@ export default function Experience(props) {
   }
 
   const renderedExpForms = props.experience.map((obj, index) => {
+    console.log(props.experience);
     const renderedTaskInputs = obj.tasks.map((task, indexTwo) => {
       return (
         <div key={indexTwo}>
