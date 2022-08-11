@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 export default function Education(props) {
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -77,7 +77,7 @@ export default function Education(props) {
       {!show && (
         <button
           onClick={handleSubmit}
-          className="mt-2 rounded bg-white px-4 py-1 text-slate-800"
+          className="mt-2 rounded bg-white px-4 py-1 text-slate-800 hover:bg-gray-300"
         >
           Edit Education Details
         </button>
@@ -87,13 +87,13 @@ export default function Education(props) {
         <div className="m-4 flex justify-center gap-8">
           <button
             onClick={handleSubmit}
-            className="rounded bg-white px-4 py-1 text-slate-800"
+            className="rounded bg-white px-4 py-1 text-slate-800 hover:bg-gray-300"
           >
             Hide Education Details
           </button>
           <button
             onClick={show && props.addEducation}
-            className="rounded bg-white px-4 py-1 text-slate-800"
+            className="rounded bg-white px-4 py-1 text-slate-800 hover:bg-gray-300"
           >
             Add Education
           </button>

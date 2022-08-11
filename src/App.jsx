@@ -20,6 +20,18 @@ export default function App() {
         city: 'Rolla, MO',
       },
     ],
+    experience: [
+      {
+        name: 'Gelita',
+        position: 'Process Engineer',
+        dateOfWork: 'August 2011 - May 2015',
+        city: 'Sioux City, IA',
+        tasks: [
+          'Facilate training of over 200 process operators.',
+          'A second super important task that shows skill.',
+        ],
+      },
+    ],
   });
 
   function addEducation(event) {
@@ -38,6 +50,33 @@ export default function App() {
     });
   }
 
+  function addExperience(event) {
+    event.preventDefault();
+    let newExperience = [
+      {
+        name: '',
+        position: '',
+        dateOfWork: '',
+        tasks: [],
+      },
+    ];
+    setInformation((prevInformation) => {
+      const newExpArray = [...prevInformation.experience, newExperience];
+      return { ...prevInformation, experience: newExpArray };
+    });
+  }
+
+  function addTask(event) {
+    const { id } = event.target;
+    setInformation((prevInformation) => {
+      const newInformation = { ...prevInformation };
+      const newArray = [...newInformation.experience[id].tasks];
+      newArray.push('');
+      newInformation.experience[id].tasks = newArray;
+      return newInformation;
+    });
+  }
+
   function handleChange(event) {
     const { name, value, id, step } = event.target;
 
@@ -47,13 +86,17 @@ export default function App() {
         newState[id][name] = value;
         return { ...newState };
       });
+    } else if (name === 'tasks' && step !== '') {
+      setInformation((prevInformation) => {
+        let newState = { ...prevInformation };
+        newState.experience[id].tasks[step] = value;
+        return { ...newState };
+      });
     } else {
       setInformation((prevInformation) => {
         let newState = { ...prevInformation };
         newState[id][step][name] = value;
-        return {
-          ...newState,
-        };
+        return { ...newState };
       });
     }
   }
@@ -66,7 +109,12 @@ export default function App() {
         handleChange={handleChange}
         addEducation={addEducation}
       />
-      <Experience />
+      <Experience
+        {...information}
+        handleChange={handleChange}
+        addExperience={addExperience}
+        addTask={addTask}
+      />
       <Output {...information} />
     </div>
   );

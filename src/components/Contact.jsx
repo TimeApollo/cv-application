@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 export default function Contact(props) {
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -13,7 +13,7 @@ export default function Contact(props) {
       {!show && (
         <button
           onClick={handleSubmit}
-          className="mt-2 rounded bg-white px-4 py-1 text-slate-800"
+          className="mt-2 rounded bg-white px-4 py-1 text-slate-800 hover:bg-gray-300"
         >
           Edit Contact Details
         </button>
@@ -70,7 +70,7 @@ export default function Contact(props) {
               placeholder="Phone"
             />
           </div>
-          <button className="rounded bg-white px-4 py-1 text-slate-800">
+          <button className="rounded bg-white px-4 py-1 text-slate-800 hover:bg-gray-300">
             Hide Contact Details
           </button>
         </form>
