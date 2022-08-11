@@ -6,11 +6,11 @@ export default function EducationOutput(props) {
     return (
       <div className="mb-4" key={index}>
         <div className="flex justify-between">
-          <h1>{obj.areaOfStudy}</h1>
+          <h1>{obj.name}</h1>
           <h1>{obj.dateOfStudy}</h1>
         </div>
         <div className="flex justify-between">
-          <h1>{obj.name}</h1>
+          <h1>{obj.areaOfStudy}</h1>
           <h1>{obj.city}</h1>
         </div>
       </div>

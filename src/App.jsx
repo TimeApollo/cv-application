@@ -26,7 +26,7 @@ export default function App() {
         position: '',
         dateOfWork: '',
         city: '',
-        tasks: ['', 'A second super important task that shows skill.'],
+        tasks: [''],
       },
     ],
   });
